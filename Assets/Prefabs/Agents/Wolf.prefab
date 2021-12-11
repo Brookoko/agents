@@ -67,13 +67,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2786688133484994353, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: weight
       value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: agentTypes
-      value: 6
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: cohesionRadiusSqr

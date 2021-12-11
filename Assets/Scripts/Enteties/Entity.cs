@@ -11,6 +11,8 @@ namespace Victor.Agents.Enteties
 
         [SerializeField]
         public DamageType immuneTo;
+        
+        public AgentType type;
 
         public event Action<Hit> OnDeath;
         public event Action<Hit> OnHit;

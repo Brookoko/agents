@@ -7,6 +7,7 @@ namespace Scenes.Scripts
     {
         Wolf = 1 << 0,
         Rabbit = 1 << 1,
-        Deer = 1 << 2
+        Deer = 1 << 2,
+        Hunter = 1 << 3,
     }
 }

@@ -18,9 +18,6 @@ namespace Victor.Agents
         private float spawnRadius = 10;
 
         [SerializeField]
-        private BoidsProvider boidsProvider;
-
-        [SerializeField]
         private EntityProvider entityProvider;
 
         [SerializeField]
@@ -34,8 +31,7 @@ namespace Victor.Agents
                 var position = new Vector3(random.x, 0, random.y);
                 var agent = Instantiate(agentPrefab, position, Random.rotation, transform);
 
-                agent.Construct(boidsProvider);
-                boidsProvider.Add(agent);
+                agent.Construct(entityProvider);
                 SetupEntity(agent);
             }
         }

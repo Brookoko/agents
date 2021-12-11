@@ -4,14 +4,12 @@ using Scenes.Behaviours;
 using Scenes.Scripts;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Victor.Agents;
 
 public class Agent : MonoBehaviour
 {
     [SerializeField]
     private float mass = 1;
-
-    [SerializeField]
-    private AgentType type;
 
     [SerializeField]
     private AgentBehaviour[] behaviours;
@@ -33,18 +31,16 @@ public class Agent : MonoBehaviour
     [FormerlySerializedAs("Epsilon")] [SerializeField]
     private float epsilon;
 
-    public AgentType Type => type;
-
     public Vector2 Velocity => velocity;
     private Vector2 velocity;
     private Vector2 acceleration;
     private bool isEnabled;
     private Rigidbody rb;
-    private BoidsProvider boidsProvider;
+    private EntityProvider entityProvider;
 
-    public void Construct(BoidsProvider boidsProvider)
+    public void Construct(EntityProvider entityProvider)
     {
-        this.boidsProvider = boidsProvider;
+        this.entityProvider = entityProvider;
     }
 
     private void Start()
@@ -76,7 +72,7 @@ public class Agent : MonoBehaviour
 
         foreach (var behaviour in activeBehaviours)
         {
-            behaviour.targets = boidsProvider.Agents;
+            behaviour.targets = entityProvider.entities;
             var desiredVelocity = behaviour.GetDesiredVelocity(this) * behaviour.weight;
             steering += desiredVelocity - velocity;
         }

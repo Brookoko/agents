@@ -6,6 +6,6 @@
 
     public class EntityProvider : MonoBehaviour
     {
-        public List<IEntity> entities = new List<IEntity>();
+        public List<Entity> entities = new List<Entity>();
     }
 }

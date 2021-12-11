@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hunter: {fileID: 4682529912944909135, guid: 00348a18712c79a43aa3fc6a18dd9780, type: 3}
+  entityProvider: {fileID: 1504098318}
 --- !u!1 &349348554
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9064893697a4e779d472a644f942069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entities: []
 --- !u!1001 &1610567788
 PrefabInstance:
   m_ObjectHideFlags: 0
