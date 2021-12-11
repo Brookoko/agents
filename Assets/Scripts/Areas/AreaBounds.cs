@@ -1,4 +1,4 @@
-namespace Scenes.Scripts.Areas
+namespace Victor.Agents.Areas
 {
     using UnityEngine;
 

@@ -35,6 +35,14 @@ namespace Victor.Agents.Input
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pointer"",
+                    ""type"": ""Value"",
+                    ""id"": ""c81dc6be-fdbe-4464-b6f4-5ecf17fd0383"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -103,6 +111,17 @@ namespace Victor.Agents.Input
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff2972d1-10ca-48d8-b740-641b6f4e1258"",
+                    ""path"": ""<Pointer>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Standalone"",
+                    ""action"": ""Pointer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -130,6 +149,7 @@ namespace Victor.Agents.Input
             m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
             m_Game_Movement = m_Game.FindAction("Movement", throwIfNotFound: true);
             m_Game_Fire = m_Game.FindAction("Fire", throwIfNotFound: true);
+            m_Game_Pointer = m_Game.FindAction("Pointer", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -181,12 +201,14 @@ namespace Victor.Agents.Input
         private IGameActions m_GameActionsCallbackInterface;
         private readonly InputAction m_Game_Movement;
         private readonly InputAction m_Game_Fire;
+        private readonly InputAction m_Game_Pointer;
         public struct GameActions
         {
             private @InputActions m_Wrapper;
             public GameActions(@InputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_Game_Movement;
             public InputAction @Fire => m_Wrapper.m_Game_Fire;
+            public InputAction @Pointer => m_Wrapper.m_Game_Pointer;
             public InputActionMap Get() { return m_Wrapper.m_Game; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -202,6 +224,9 @@ namespace Victor.Agents.Input
                     @Fire.started -= m_Wrapper.m_GameActionsCallbackInterface.OnFire;
                     @Fire.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnFire;
                     @Fire.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnFire;
+                    @Pointer.started -= m_Wrapper.m_GameActionsCallbackInterface.OnPointer;
+                    @Pointer.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnPointer;
+                    @Pointer.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnPointer;
                 }
                 m_Wrapper.m_GameActionsCallbackInterface = instance;
                 if (instance != null)
@@ -212,6 +237,9 @@ namespace Victor.Agents.Input
                     @Fire.started += instance.OnFire;
                     @Fire.performed += instance.OnFire;
                     @Fire.canceled += instance.OnFire;
+                    @Pointer.started += instance.OnPointer;
+                    @Pointer.performed += instance.OnPointer;
+                    @Pointer.canceled += instance.OnPointer;
                 }
             }
         }
@@ -229,6 +257,7 @@ namespace Victor.Agents.Input
         {
             void OnMovement(InputAction.CallbackContext context);
             void OnFire(InputAction.CallbackContext context);
+            void OnPointer(InputAction.CallbackContext context);
         }
     }
 }

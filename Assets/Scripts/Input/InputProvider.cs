@@ -7,8 +7,8 @@ namespace Victor.Agents.Input
     public interface IInputProvider
     {
         event Action<Vector2> OnMove;
-
-        event Action<Vector2> OnTap;
+        event Action<Vector2> OnPointerMove;
+        event Action OnTap;
 
         void Enable();
 
@@ -18,9 +18,8 @@ namespace Victor.Agents.Input
     public class InputProvider : IInputProvider
     {
         public event Action<Vector2> OnMove;
-        public event Action<Vector2> OnTap;
-
-        private Vector2 PointerPosition => Pointer.current.position.ReadValue();
+        public event Action<Vector2> OnPointerMove;
+        public event Action OnTap;
 
         private readonly InputActions actions;
 
@@ -36,7 +35,9 @@ namespace Victor.Agents.Input
             var game = actions.Game;
 
             game.Movement.performed += context => OnMove?.Invoke(context.ReadValue<Vector2>());
-            game.Fire.performed += _ => OnTap?.Invoke(PointerPosition);
+            game.Movement.canceled += _ => OnMove?.Invoke(Vector2.zero);
+            game.Pointer.performed += context => OnPointerMove?.Invoke(context.ReadValue<Vector2>());
+            game.Fire.performed += _ => OnTap?.Invoke();
         }
 
         public void Enable()

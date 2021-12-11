@@ -1,6 +1,7 @@
-namespace Scenes.Scripts.Areas
+namespace Victor.Agents.Areas
 {
     using UnityEngine;
+    using Characters.Hunters;
 
     public class Area : MonoBehaviour
     {
@@ -10,10 +11,21 @@ namespace Scenes.Scripts.Areas
         [SerializeField]
         private AnimalSpawner[] spawners;
 
-        private void Awake()
+        [SerializeField]
+        private Transform playerSpawnPoint;
+
+        private Hunter hunter;
+
+        public void Construct(HunterSpawner hunterSpawner)
+        {
+            hunter = hunterSpawner.Create(playerSpawnPoint);
+        }
+
+        public void Init()
         {
             CreateBounds();
             SpawnAnimals();
+            hunter.Init();
         }
 
         private void CreateBounds()
