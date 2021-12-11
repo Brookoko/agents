@@ -22,7 +22,7 @@ public class AgentSpawner : MonoBehaviour
         {
             var random = Random.insideUnitCircle * spawnRadius;
             var position = new Vector3(random.x, 0, random.y);
-            var agent = Instantiate(agentPrefab, position, Random.rotation);
+            var agent = Instantiate(agentPrefab, position, Random.rotation, transform);
             agents.Add(agent);
         }
 
