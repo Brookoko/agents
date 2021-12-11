@@ -1,3 +1,6 @@
 {
-  "name": "Victor.Game"
+  "name": "Victor.Game",
+  "references": [
+    "Unity.InputSystem"
+  ]
 }

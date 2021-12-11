@@ -1,12 +1,15 @@
 namespace Scenes.Scripts
 {
-    using System;
     using UnityEngine;
+    using Victor.Agents.Input;
 
     public class GameRoot : MonoBehaviour
     {
+        private IInputProvider inputProvider;
+
         private void Awake()
         {
+            inputProvider = new InputProvider();
         }
     }
 }
