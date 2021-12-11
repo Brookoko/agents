@@ -1,6 +1,7 @@
 {
   "name": "Victor.Game",
   "references": [
-    "Unity.InputSystem"
+    "Unity.InputSystem",
+    "Cinemachine"
   ]
 }

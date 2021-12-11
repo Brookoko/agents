@@ -1,5 +1,6 @@
 namespace Victor.Agents.Areas
 {
+    using Cameras;
     using UnityEngine;
     using Characters.Hunters;
 
@@ -15,10 +16,12 @@ namespace Victor.Agents.Areas
         private Transform playerSpawnPoint;
 
         private Hunter hunter;
+        private GameCamerasController gameCamerasController;
 
-        public void Construct(HunterSpawner hunterSpawner)
+        public void Construct(HunterSpawner hunterSpawner, GameCamerasController gameCamerasController)
         {
             hunter = hunterSpawner.Create(playerSpawnPoint);
+            this.gameCamerasController = gameCamerasController;
         }
 
         public void Init()
@@ -26,6 +29,7 @@ namespace Victor.Agents.Areas
             CreateBounds();
             SpawnAnimals();
             hunter.Init();
+            gameCamerasController.CurrentCamera.LookAt(hunter.transform);
         }
 
         private void CreateBounds()
