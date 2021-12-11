@@ -15,7 +15,7 @@ namespace Victor.Agents.Characters
 
         private IInputProvider inputProvider;
         private Camera cam;
-        private Vector3 lookPoint;
+        private Vector2 lookPoint;
 
         private void Awake()
         {
@@ -44,19 +44,24 @@ namespace Victor.Agents.Characters
 
         private void ProcessPointer(Vector2 look)
         {
-            var ray = cam.ScreenPointToRay(look);
-            if (Physics.Raycast(ray.origin, ray.direction, out var hit, 100, planeLayer))
-            {
-                lookPoint = hit.point;
-            }
+            lookPoint = look;
         }
 
         private void Update()
         {
-            var direction = lookPoint - transform.position;
-            direction.y = 0;
-            direction = direction.normalized;
-            OnRotate?.Invoke(direction);
+            UpdateLook();
+        }
+
+        private void UpdateLook()
+        {
+            var ray = cam.ScreenPointToRay(lookPoint);
+            if (Physics.Raycast(ray.origin, ray.direction, out var hit, 100, planeLayer))
+            {
+                var direction = hit.point - transform.position;
+                direction.y = 0;
+                direction = direction.normalized;
+                OnRotate?.Invoke(direction);
+            }
         }
 
         private void ProcessFire()
