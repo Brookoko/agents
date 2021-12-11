@@ -12,9 +12,7 @@ namespace Scenes.Behaviours
         [SerializeField]
         private AnimationCurve ease;
 
-        [SerializeField]
         private float positionSubtractionSqrMagnitude;
-
         private Vector2 positionSubtraction;
 
         public override Vector2 GetDesiredVelocity(Agent agent)
@@ -49,8 +47,7 @@ namespace Scenes.Behaviours
 
         private bool IsVisible()
         {
-            var distance = positionSubtractionSqrMagnitude;
-            return distance < separationDistanceSqr;
+            return positionSubtractionSqrMagnitude < separationDistanceSqr;
         }
     }
 }

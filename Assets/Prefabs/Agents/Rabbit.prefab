@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3702527550769973885, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
+      propertyPath: velocityLimit
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4124634573544965812, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: weight
       value: 33.7
