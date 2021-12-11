@@ -69,11 +69,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: weight
-      value: 6
+      value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: agentTypes
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
+      propertyPath: cohesionRadiusSqr
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5864641935245959774, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: m_Materials.Array.data[0]

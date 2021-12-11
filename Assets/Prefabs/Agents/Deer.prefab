@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: cohesionRadiusSqr
-      value: 24.61
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3702527550769973885, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: type
