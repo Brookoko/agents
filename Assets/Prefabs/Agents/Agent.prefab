@@ -233,13 +233,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f839d8ec424370ae181c99020aee0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 6
+  weight: 2
   agentTypes: -1
   isActive: 1
   avoidLayer:
     serializedVersion: 2
     m_Bits: 64
-  avoidDistanceToEdge: 0
+  avoidDistanceToEdge: 5
 --- !u!1 &6862285232171876854
 GameObject:
   m_ObjectHideFlags: 0

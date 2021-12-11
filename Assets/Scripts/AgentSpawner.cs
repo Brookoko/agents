@@ -44,13 +44,14 @@ namespace Victor.Agents
         {
             var entity = agent.GetComponent<Entity>();
             entityProvider.entities.Add(entity);
-            entity.OnDeath += _ => OnDeath(agent);
+            entity.OnDeath += _ => OnDeath(entity);
         }
 
-        private void OnDeath(Agent agent)
+        private void OnDeath(Entity entity)
         {
+            entity.Reset();
             var point = area.Bounds.GetRandomPoint();
-            agent.transform.position = point;
+            entity.transform.position = point;
         }
     }
 }
