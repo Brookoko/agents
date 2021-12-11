@@ -239,7 +239,7 @@ MonoBehaviour:
   avoidLayer:
     serializedVersion: 2
     m_Bits: 64
-  avoidDistanceToEdge: 5
+  avoidDistanceToEdge: 0
 --- !u!1 &6862285232171876854
 GameObject:
   m_ObjectHideFlags: 0

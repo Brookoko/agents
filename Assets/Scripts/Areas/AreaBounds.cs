@@ -81,10 +81,10 @@ namespace Victor.Agents.Areas
             return new Vector3(x, 0, z);
         }
 
-        public bool IsInBounds(Vector3 position)
+        public bool IsInBounds(Vector2 position)
         {
-            return (position.x > lowerLeftBound.position.x && position.z > lowerLeftBound.position.x &&
-                    position.x < upperRightBound.position.x && position.z < upperRightBound.position.z);
+            return (position.x > lowerLeftBound.position.x && position.y > lowerLeftBound.position.z &&
+                    position.x < upperRightBound.position.x && position.y < upperRightBound.position.z);
         }
     }
 }

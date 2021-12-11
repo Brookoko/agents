@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 1504098315}
   - component: {fileID: 1504098316}
   - component: {fileID: 1504098317}
+  - component: {fileID: 1504098318}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -749,8 +750,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e493eedd60354bcf987a45b9e1264dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidsProvider: {fileID: 1504098316}
+  entityProvider: {fileID: 1504098318}
   areaBounds: {fileID: 602111576}
+--- !u!114 &1504098318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504098314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9064893697a4e779d472a644f942069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1610567788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -807,17 +820,53 @@ PrefabInstance:
       value: Spawners
       objectReference: {fileID: 0}
     - target: {fileID: 4359264576608317376, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
+      propertyPath: area
+      value: 
+      objectReference: {fileID: 2064566540}
+    - target: {fileID: 4359264576608317376, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
+      propertyPath: spawnRadius
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359264576608317376, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
       propertyPath: boidsProvider
       value: 
       objectReference: {fileID: 1504098316}
+    - target: {fileID: 4359264576608317376, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
+      propertyPath: entityProvider
+      value: 
+      objectReference: {fileID: 1504098318}
+    - target: {fileID: 4359264576703382690, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
+      propertyPath: area
+      value: 
+      objectReference: {fileID: 2064566540}
+    - target: {fileID: 4359264576703382690, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
+      propertyPath: spawnRadius
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4359264576703382690, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
       propertyPath: boidsProvider
       value: 
       objectReference: {fileID: 1504098316}
+    - target: {fileID: 4359264576703382690, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
+      propertyPath: entityProvider
+      value: 
+      objectReference: {fileID: 1504098318}
+    - target: {fileID: 4359264577158229865, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
+      propertyPath: area
+      value: 
+      objectReference: {fileID: 2064566540}
+    - target: {fileID: 4359264577158229865, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
+      propertyPath: spawnRadius
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4359264577158229865, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
       propertyPath: boidsProvider
       value: 
       objectReference: {fileID: 1504098316}
+    - target: {fileID: 4359264577158229865, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
+      propertyPath: entityProvider
+      value: 
+      objectReference: {fileID: 1504098318}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd31c8fd96c005540a3986bb1d4ac792, type: 3}
 --- !u!4 &1610567789 stripped

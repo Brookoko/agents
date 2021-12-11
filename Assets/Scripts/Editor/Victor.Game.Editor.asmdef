@@ -1,9 +1,0 @@
-{
-  "name": "Victor.Game.Editor",
-  "includePlatforms": [
-    "Editor"
-  ],
-  "references": [
-    "Victor.Game"
-  ]
-}

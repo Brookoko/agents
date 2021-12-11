@@ -13,7 +13,6 @@ namespace Scenes.Behaviours
 
         private readonly RaycastHit[] hits = new RaycastHit[3];
         private readonly RaycastHit[] raycast = new RaycastHit[1];
-
         public override Vector2 GetDesiredVelocity(Agent agent)
         {
             var agentPosition = agent.transform.position;

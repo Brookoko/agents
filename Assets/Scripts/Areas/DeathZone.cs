@@ -1,24 +1,23 @@
 ﻿namespace Victor.Agents.Areas
 {
-    using Scenes.Scripts;
     using UnityEngine;
 
     public class DeathZone : MonoBehaviour
     {
         [SerializeField]
-        private BoidsProvider boidsProvider;
+        private EntityProvider entityProvider;
 
         [SerializeField]
         private AreaBounds areaBounds;
 
         private void Update()
         {
-            foreach (var agent in boidsProvider.Agents)
+            foreach (var entity in entityProvider.entities)
             {
-                var position = agent.transform.position;
+                var position = entity.Position;
                 if (!areaBounds.IsInBounds(position))
                 {
-                    agent.gameObject.SetActive(false);
+                    entity.Die();
                 }
             }
         }
