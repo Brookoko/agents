@@ -33,6 +33,7 @@ namespace Victor.Agents.Characters.Hunters
         {
             hunter.Stop();
             RespawnOnRandomPosition();
+            hunter.Entity.Reset();
             hunter.Init();
         }
 

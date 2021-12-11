@@ -75,5 +75,11 @@ namespace Victor.Agents.Enteties
         {
             stepsSinceLastHit++;
         }
+
+        public void Reset()
+        {
+            Health = MaxHealth;
+            IsDead = false;
+        }
     }
 }
