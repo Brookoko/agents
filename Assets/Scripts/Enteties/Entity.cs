@@ -1,6 +1,7 @@
 namespace Victor.Agents.Enteties
 {
     using System;
+    using Scenes.Scripts;
     using UnityEngine;
 
     public class Entity : MonoBehaviour, IEntity
@@ -16,11 +17,14 @@ namespace Victor.Agents.Enteties
 
         public int MaxHealth => health;
 
+
         public int Health { get; private set; }
 
         public bool IsDead { get; private set; }
 
         private int stepsSinceLastHit;
+
+        public Vector2 Position => transform.position.ToXZVector2();
 
         private void Awake()
         {
@@ -34,6 +38,7 @@ namespace Victor.Agents.Enteties
                 TakeHit(hit);
                 return true;
             }
+
             return false;
         }
 
@@ -53,6 +58,11 @@ namespace Victor.Agents.Enteties
             {
                 Die(hit);
             }
+        }
+
+        public void Die()
+        {
+            Die(new Hit());
         }
 
         protected virtual void Die(Hit hit)

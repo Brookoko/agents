@@ -1,5 +1,6 @@
 namespace Victor.Agents.Areas
 {
+    using Scenes.Scripts;
     using UnityEngine;
 
     public class AreaBounds : MonoBehaviour
@@ -78,6 +79,12 @@ namespace Victor.Agents.Areas
             var x = Random.Range(lowerLeftBound.position.x, upperRightBound.position.x);
             var z = Random.Range(lowerLeftBound.position.z, upperRightBound.position.z);
             return new Vector3(x, 0, z);
+        }
+
+        public bool IsInBounds(Vector3 position)
+        {
+            return (position.x > lowerLeftBound.position.x && position.z > lowerLeftBound.position.x &&
+                    position.x < upperRightBound.position.x && position.z < upperRightBound.position.z);
         }
     }
 }

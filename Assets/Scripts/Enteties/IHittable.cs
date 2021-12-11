@@ -1,6 +1,7 @@
 namespace Victor.Agents.Enteties
 {
     using System;
+    using UnityEngine;
 
     public interface IHittable
     {
@@ -22,9 +23,12 @@ namespace Victor.Agents.Enteties
         int Health { get; }
 
         int MaxHealth { get; }
+        
+        void Die();
     }
 
     public interface IEntity : IKillable
     {
+        Vector2 Position { get; }
     }
 }
