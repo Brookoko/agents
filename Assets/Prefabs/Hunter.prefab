@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4682529912944909132}
   - component: {fileID: 4682529912944909133}
   - component: {fileID: 4682529912944909121}
+  - component: {fileID: 3109398185553517232}
   - component: {fileID: 4682529912944909134}
   m_Layer: 10
   m_Name: Hunter
@@ -135,6 +136,7 @@ MonoBehaviour:
   characterMovement: {fileID: 4682529912944909132}
   characterRotation: {fileID: 4682529912944909133}
   characterAttacker: {fileID: 4682529913675082111}
+  entity: {fileID: 3109398185553517232}
 --- !u!114 &4682529912944909132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +179,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 4682529912944909135}
   characterInput: {fileID: 4682529914105456559}
+--- !u!114 &3109398185553517232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682529912944909131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0290c52dbb4b23bd431cbaa421d510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  immuneTo: 0
 --- !u!54 &4682529912944909134
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -218,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4682529913675082109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4682529912944909130}
@@ -236,6 +252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b2f2591c44efc9002ab9ac1ff5ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  speed: 10
+  shootPoint: {fileID: 4682529913675082108}
   bulletPrefab: {fileID: 7470429093792999340, guid: 71ae49872b865c14893823eea5317ee3, type: 3}
 --- !u!1 &4682529913717919435
 GameObject:

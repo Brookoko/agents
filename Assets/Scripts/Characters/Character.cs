@@ -1,5 +1,6 @@
 namespace Victor.Agents.Characters
 {
+    using Enteties;
     using UnityEngine;
 
     public class Character : MonoBehaviour
@@ -12,6 +13,9 @@ namespace Victor.Agents.Characters
 
         [SerializeField]
         private CharacterAttacker characterAttacker;
+
+        [SerializeField]
+        private Entity entity;
 
         public void Init()
         {
