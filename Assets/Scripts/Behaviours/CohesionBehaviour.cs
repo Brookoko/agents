@@ -1,27 +1,28 @@
 namespace Scenes.Behaviours
 {
     using UnityEngine;
+    using Scripts;
 
     public class CohesionBehaviour : FlockingBehaviour
     {
         [SerializeField]
-        [Range(0, 15)]
-        private float cohesionRadius;
-
-        [SerializeField]
         private SeekBehaviour seek;
+        
+        [SerializeField]
 
-        public override Vector3 GetDesiredVelocity(Agent agent)
+        private float cohesionRadiusSqr;
+
+        public override Vector2 GetDesiredVelocity(Agent agent)
         {
-            var result = Vector3.zero;
+            var result = Vector2.zero;
             var count = 0;
-
-            foreach (var target in FilteredTargets(agent))
+            var agentPosition = agent.transform.position.ToXZVector2();
+            foreach (var target in TargetsPositions)
             {
-                var distance = (target.transform.position - agent.transform.position).sqrMagnitude;
-                if (distance < cohesionRadius * cohesionRadius)
+                var distance = (target - agentPosition).sqrMagnitude;
+                if (distance < cohesionRadiusSqr)
                 {
-                    result += target.transform.position;
+                    result += target;
                     count++;
                 }
             }
@@ -29,7 +30,7 @@ namespace Scenes.Behaviours
             if (count == 0) return ZeroDesireVelocity(agent);
 
             result /= count;
-            Debug.DrawLine(agent.transform.position, result, Color.green, 0.03f);
+            Debug.DrawLine(agentPosition.ToXZVector3(), result.ToXZVector3(), Color.red, 0.03f);
             return seek.GetDesiredVelocity(agent, result);
         }
     }

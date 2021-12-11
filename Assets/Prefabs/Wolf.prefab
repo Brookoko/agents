@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
+      propertyPath: weight
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
+      propertyPath: agentTypes
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864641935245959774, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f85cbdbc0d9f7ce4db8d409258e49730, type: 2}
     - target: {fileID: 7825748578202382589, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461417271586538957, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: m_Name
-      value: Agent
+      value: Wolf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}

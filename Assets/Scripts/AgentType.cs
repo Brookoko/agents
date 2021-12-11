@@ -1,9 +1,12 @@
 namespace Scenes.Scripts
 {
+    using System;
+
+    [Flags]
     public enum AgentType
     {
-        Wolf,
-        Rabbit,
-        Deer
+        Wolf = 1 << 0,
+        Rabbit = 1 << 1,
+        Deer = 1 << 2
     }
 }

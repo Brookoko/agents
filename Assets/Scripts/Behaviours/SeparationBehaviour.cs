@@ -1,3 +1,5 @@
+using Scenes.Scripts;
+
 namespace Scenes.Behaviours
 {
     using UnityEngine;
@@ -5,34 +7,50 @@ namespace Scenes.Behaviours
     public class SeparationBehaviour : FlockingBehaviour
     {
         [SerializeField]
-        [Range(0, 10)]
-        private float separationDistance;
+        private float separationDistanceSqr;
 
-        public override Vector3 GetDesiredVelocity(Agent agent)
+        [SerializeField]
+        private AnimationCurve ease;
+
+        [SerializeField]
+        private float positionSubtractionSqrMagnitude;
+
+        private Vector2 positionSubtraction;
+
+        public override Vector2 GetDesiredVelocity(Agent agent)
         {
-            var result = Vector3.zero;
+            var result = Vector2.zero;
             var count = 0;
-            foreach (var target in Targets)
+
+            var agentPosition = agent.transform.position.ToXZVector2();
+
+            foreach (var target in TargetsPositions)
             {
-                if (IsVisible(agent, target))
+                positionSubtraction = agentPosition - target;
+                positionSubtractionSqrMagnitude = positionSubtraction.sqrMagnitude;
+
+                if (IsVisible())
                 {
-                    var direction = agent.transform.position - target.transform.position;
-                    result += direction.normalized;
+                    var value = ease.Evaluate(positionSubtractionSqrMagnitude / separationDistanceSqr);
+                    var direction = positionSubtraction.normalized * value;
+                    result += direction;
                     count++;
-                    Debug.DrawRay(agent.transform.position, direction.normalized * 10, Color.red);
                 }
             }
 
             if (count == 0) return ZeroDesireVelocity(agent);
 
             result /= count;
-            return result.normalized * agent.VelocityLimit;
+
+            Debug.DrawRay(agentPosition.ToXZVector3() + Vector3.up, result.ToXZVector3(), Color.magenta, 0.03f);
+
+            return result * agent.velocityLimit;
         }
 
-        private bool IsVisible(Agent agent, Agent target)
+        private bool IsVisible()
         {
-            var distance = (agent.transform.position - target.transform.position).sqrMagnitude;
-            return distance < separationDistance * separationDistance;
+            var distance = positionSubtractionSqrMagnitude;
+            return distance < separationDistanceSqr;
         }
     }
 }

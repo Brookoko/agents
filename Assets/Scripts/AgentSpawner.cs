@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Scenes.Scripts;
 using UnityEngine;
 
 public class AgentSpawner : MonoBehaviour
@@ -14,23 +15,18 @@ public class AgentSpawner : MonoBehaviour
     [SerializeField]
     private float spawnRadius = 10;
 
-    private List<Agent> agents = new List<Agent>();
+    [SerializeField]
+    private BoidsProvider boidsProvider;
 
     private void Start()
     {
         for (var i = 0; i < amount; i++)
         {
             var random = Random.insideUnitCircle * spawnRadius;
-            var position = new Vector3(random.x, 0, random.y);
+            var position = new Vector3(random.x, 1, random.y);
             var agent = Instantiate(agentPrefab, position, Random.rotation, transform);
-            agents.Add(agent);
-        }
-
-        foreach (var agent in agents)
-        {
-            var otherAgents = agents.ToList();
-            otherAgents.Remove(agent);
-            agent.Agents = otherAgents;
+            agent.Construct(boidsProvider);
+            boidsProvider.Add(agent);
         }
     }
 }

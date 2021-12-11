@@ -1,27 +1,31 @@
 namespace Scenes.Behaviours
 {
     using UnityEngine;
+    using Scripts;
 
     public class SeekBehaviour : AgentBehaviour
     {
-        [SerializeField]
-        [Range(0, 15)]
-        private float seekRadius;
-        
-        public Transform Target { get; set; }
-        
-        public override Vector3 GetDesiredVelocity(Agent agent)
+        [SerializeField] [Range(0, 15)]
+        private float seekRadiusSqr;
+
+        public Vector2 Target { get; set; }
+
+
+        public override Vector2 GetDesiredVelocity(Agent agent)
         {
-            return !Target ? ZeroDesireVelocity(agent) : GetDesiredVelocity(agent, Target.position);
+            Debug.DrawRay(transform.position + Vector3.up * 0.75f,
+                GetDesiredVelocity(agent, Target).normalized.ToXZVector3(), Color.grey);
+            return GetDesiredVelocity(agent, Target);
         }
 
-        public Vector3 GetDesiredVelocity(Agent agent, Vector3 position)
+        public Vector2 GetDesiredVelocity(Agent agent, Vector2 position)
         {
-            var direction = position - agent.transform.position;
-            var magnitude = direction.sqrMagnitude;
+            var agentPosition = agent.transform.position.ToXZVector2();
 
-            var k = Mathf.Clamp01(magnitude / (seekRadius * seekRadius));
-            return k * agent.VelocityLimit * direction.normalized;
+            var direction = position - agentPosition;
+            var magnitude = direction.sqrMagnitude;
+            var k = Mathf.Clamp01(magnitude / seekRadiusSqr);
+            return k * agent.velocityLimit * direction.normalized;
         }
     }
 }

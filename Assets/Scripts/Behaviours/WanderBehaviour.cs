@@ -1,41 +1,40 @@
 namespace Scenes.Behaviours
 {
+    using Scripts;
     using UnityEngine;
 
     public class WanderBehaviour : AgentBehaviour
     {
         [SerializeField]
-        [Range(1, 15)]
-        private float aheadDistance;
-
-        [SerializeField]
         private SeekBehaviour seek;
 
         [SerializeField]
-        [Range(10, 120)]
-        private float randomAngle = 45;
+        private int repeatFrame;
 
         [SerializeField]
-        [Range(0, 200)]
-        private int repeatFrame = 10;
-        
+        private float randomAngle;
+
+        [SerializeField]
+        private float aheadDistance;
+
         private int count;
-        private Vector3 wanderPosition;
-        
-        public override Vector3 GetDesiredVelocity(Agent agent)
+        private Vector2 wanderPosition;
+
+        public override Vector2 GetDesiredVelocity(Agent agent)
         {
-            Debug.DrawRay(agent.transform.position, agent.transform.forward * 10, Color.cyan);
             if (count > 0)
             {
                 count--;
                 return seek.GetDesiredVelocity(agent, wanderPosition);
             }
+
             var pos = agent.transform.position;
-            var forward = Quaternion.AngleAxis((Random.value - 0.5f) * 2 * randomAngle, agent.transform.up) * agent.transform.forward;
-            var predictSpeed = Time.fixedDeltaTime * agent.VelocityLimit * forward;
-            wanderPosition = pos + predictSpeed * aheadDistance;
+            var forward = Quaternion.AngleAxis((Random.value - 0.5f) * 2 * randomAngle, Vector3.up) *
+                          agent.transform.forward;
+            var predictSpeed = Time.fixedDeltaTime * agent.velocityLimit * forward.ToXZVector2();
+            wanderPosition = pos.ToXZVector2() + predictSpeed * aheadDistance;
             count = repeatFrame;
-            Debug.DrawLine(pos, wanderPosition, Color.blue, repeatFrame * Time.fixedDeltaTime);
+            Debug.DrawLine(pos, wanderPosition.ToXZVector3(), Color.green, repeatFrame * Time.fixedDeltaTime);
             return seek.GetDesiredVelocity(agent, wanderPosition);
         }
     }

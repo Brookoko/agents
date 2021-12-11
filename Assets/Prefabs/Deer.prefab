@@ -12,12 +12,20 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
+      propertyPath: weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: agentTypes
-      value: 0
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104919837570152745, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
+      propertyPath: cohesionRadiusSqr
+      value: 24.61
       objectReference: {fileID: 0}
     - target: {fileID: 3702527550769973885, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: type
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4124634573544965812, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: weight
@@ -98,7 +106,7 @@ PrefabInstance:
     - target: {fileID: 5864641935245959774, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d977898b78909d49a4495b4be9a421b, type: 2}
+      objectReference: {fileID: 2100000, guid: d04ea34dfc3b2d84aa54e4c005dc5cc1, type: 2}
     - target: {fileID: 7825748578202382589, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -145,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461417271586538957, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
       propertyPath: m_Name
-      value: Rabbit
+      value: Deer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1389682ec35b3aa4c89e5a8acd5c30cc, type: 3}
