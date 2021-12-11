@@ -1,5 +1,6 @@
 namespace Victor.Agents.Enteties
 {
+    using System;
     using UnityEngine;
 
     public class HitTrigger : MonoBehaviour
@@ -10,13 +11,18 @@ namespace Victor.Agents.Enteties
         [SerializeField]
         private DamageType damageType;
 
+        public event Action OnKill;
+
         private void OnTriggerEnter(Collider collider)
         {
             var rb = collider.attachedRigidbody;
             if (rb)
             {
                 var entity = rb.GetComponent<Entity>();
-                entity?.TryTakeHit(CreateHit());
+                if (entity && entity.TryTakeHit(CreateHit()))
+                {
+                    OnKill?.Invoke();
+                }
             }
         }
 
