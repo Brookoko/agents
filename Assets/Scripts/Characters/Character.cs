@@ -14,8 +14,8 @@ namespace Victor.Agents.Characters
         [SerializeField]
         private CharacterAttacker characterAttacker;
 
-        [SerializeField]
-        private Entity entity;
+        [field: SerializeField]
+        public Entity Entity { get; private set; }
 
         public void Init()
         {

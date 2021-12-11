@@ -72,5 +72,12 @@ namespace Victor.Agents.Areas
             var rpos = upperRightBound.position;
             return lpos.x < rpos.x && lpos.z < rpos.z;
         }
+
+        public Vector3 GetRandomPoint()
+        {
+            var x = Random.Range(lowerLeftBound.position.x, upperRightBound.position.x);
+            var z = Random.Range(lowerLeftBound.position.z, upperRightBound.position.z);
+            return new Vector3(x, 0, z);
+        }
     }
 }

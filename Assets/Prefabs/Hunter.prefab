@@ -136,7 +136,7 @@ MonoBehaviour:
   characterMovement: {fileID: 4682529912944909132}
   characterRotation: {fileID: 4682529912944909133}
   characterAttacker: {fileID: 4682529913675082111}
-  entity: {fileID: 3109398185553517232}
+  <Entity>k__BackingField: {fileID: 3109398185553517232}
 --- !u!114 &4682529912944909132
 MonoBehaviour:
   m_ObjectHideFlags: 0

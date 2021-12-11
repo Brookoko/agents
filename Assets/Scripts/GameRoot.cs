@@ -1,6 +1,5 @@
 namespace Victor.Agents
 {
-    using System;
     using Areas;
     using Cameras;
     using UnityEngine;
@@ -23,7 +22,7 @@ namespace Victor.Agents
         private void Awake()
         {
             inputProvider = new InputProvider();
-            hunterSpawner.Construct(inputProvider);
+            hunterSpawner.Construct(inputProvider, area);
             area.Construct(hunterSpawner, gameCamerasController);
         }
 

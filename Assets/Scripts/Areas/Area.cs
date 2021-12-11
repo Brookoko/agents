@@ -15,6 +15,8 @@ namespace Victor.Agents.Areas
         [SerializeField]
         private Transform playerSpawnPoint;
 
+        public AreaBounds Bounds => areaBounds;
+
         private Hunter hunter;
         private GameCamerasController gameCamerasController;
 
