@@ -1,7 +1,6 @@
 namespace Victor.Agents.Characters.Hunters
 {
     using Areas;
-    using Enteties;
     using UnityEngine;
     using Input;
     using CharacterController = CharacterController;
@@ -25,22 +24,22 @@ namespace Victor.Agents.Characters.Hunters
             var instance = Instantiate(hunter, spawnPoint, false);
             var controller = instance.GetComponent<CharacterController>();
             controller.Construct(inputProvider);
-            hunter.Entity.OnDeath += OnDeath;
+            instance.Entity.OnDeath += _ => OnDeath(instance);
             return instance;
         }
 
-        private void OnDeath(Hit hit)
+        private void OnDeath(Hunter hunterInstance)
         {
-            hunter.Stop();
-            RespawnOnRandomPosition();
-            hunter.Entity.Reset();
-            hunter.Init();
+            hunterInstance.Stop();
+            RespawnOnRandomPosition(hunterInstance);
+            hunterInstance.Entity.Reset();
+            hunterInstance.Init();
         }
 
-        private void RespawnOnRandomPosition()
+        private void RespawnOnRandomPosition(Hunter hunterInstance)
         {
             var point = area.Bounds.GetRandomPoint();
-            hunter.transform.position = point;
+            hunterInstance.transform.position = point;
         }
     }
 }

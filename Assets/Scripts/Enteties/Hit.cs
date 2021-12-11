@@ -13,5 +13,6 @@ namespace Victor.Agents.Enteties
     public enum DamageType
     {
         Normal = 1 << 0,
+        Collision = 1 << 1,
     }
 }

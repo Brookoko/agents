@@ -51,7 +51,7 @@ namespace Victor.Agents.Enteties
             if (Physics.Raycast(pos, transform.forward, out var raycastHit, distance, hitMask))
             {
                 var hittable = raycastHit.rigidbody.GetComponent<IHittable>();
-                return hittable.TryTakeHit(CreateHit());
+                return hittable?.TryTakeHit(CreateHit()) ?? false;
             }
             return false;
         }
